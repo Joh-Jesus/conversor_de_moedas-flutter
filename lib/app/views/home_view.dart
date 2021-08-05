@@ -26,13 +26,13 @@ class _HomeViewState extends State<HomeView> {
       height: MediaQuery.of(context).size.height,
       child: Padding(
         padding:
-            const EdgeInsets.only(left: 300, right: 30, top: 100, bottom: 20),
+            const EdgeInsets.only(left: 20, right: 20, top: 30, bottom: 20),
         child: Column(
           children: [
             Image.asset(
               'assets/moedas.jpg',
-              width: 150,
-              height: 150,
+              width: 300,
+              height: 300,
             ),
             SizedBox(height: 50),
             CurrencyBox(

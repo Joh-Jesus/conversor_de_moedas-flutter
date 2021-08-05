@@ -4,21 +4,20 @@ import 'package:flutter/cupertino.dart';
 class HomeController {
   List<CurrencyModel>? currencies;
 
-  TextEditingController toText = TextEditingController();
-  TextEditingController fromText = TextEditingController();
+  TextEditingController? toText = TextEditingController();
+  TextEditingController? fromText = TextEditingController();
 
   CurrencyModel? toCurrency;
   CurrencyModel? fromCurrency;
 
-  HomeController(
-      {TextEditingController? fromText, TextEditingController? toText}) {
-    currencies = getCurrencies();
+  HomeController({this.toText, this.fromText}) {
+    currencies = CurrencyModel.getCurrencies();
     toCurrency = currencies?[0];
     fromCurrency = currencies?[1];
   }
 
   void convert() {
-    String? text = toText.text;
+    String? text = toText!.text;
     double? value = double.tryParse(text) ?? 1.0;
     double? returnValue;
 
@@ -30,6 +29,6 @@ class HomeController {
       returnValue = value * toCurrency!.euro!;
     }
 
-    fromText.text = returnValue!.toStringAsFixed(2);
+    fromText!.text = returnValue!.toStringAsFixed(2);
   }
 }
